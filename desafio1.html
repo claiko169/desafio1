@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafío 1</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding-top: 50px;
+            overflow: hidden;
+            position: relative;
+            animation: fondo 10s infinite alternate;
+        }
+
+        @keyframes fondo {
+            0% { background: #0d0d0d; }
+            50% { background: #1f1f2e; }
+            100% { background: #0d0d0d; }
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            animation: aparecer 3s ease-in-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: scale(0.8);}
+            to { opacity: 1; transform: scale(1);}
+        }
+
+        img {
+            width: 250px;
+            height: auto;
+            border: 3px solid white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            animation: latido 2s infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes latido {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            width: 250px;
+            position: relative;
+            z-index: 2;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #292929;
+            color: white;
+            border: 2px solid white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+
+        button:hover {
+            background-color: #444444;
+            transform: scale(1.1);
+        }
+
+        /* Niebla animada */
+        .niebla {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: url('https://i.imgur.com/O3ZC7qZ.png') repeat;
+            opacity: 0.1;
+            animation: moverNiebla 60s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes moverNiebla {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-50px, -50px); }
+            100% { transform: translate(0, 0); }
+        }
+    </style>
+    <script>
+        function verificarRespuesta() {
+            var respuesta = document.getElementById("respuesta").value.trim().toLowerCase();
+            if (respuesta === "ally") {
+                window.location.href = "desafio2.html"; // <-- Cambia esto al enlace correcto
+            } else {
+                alert("Respuesta incorrecta...Fijate bien");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="niebla"></div>
+
+    <h1>¿Cuál es mi contraseña de teléfono?</h1>
+    
+    <img src="ella.jpg" alt="Mi amor">
+
+    <br>
+
+    <input type="text" id="respuesta" placeholder="Escribe tu respuesta aquí...">
+    <br>
+    <button onclick="verificarRespuesta()">Enviar</button>
+
+    <audio autoplay loop>
+        <source src="misteriosa.mp3" type="audio/mpeg">
+        Tu navegador no soporta el audio HTML5.
+    </audio>
+
+</body>
+</html>
